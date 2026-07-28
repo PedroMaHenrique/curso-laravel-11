@@ -1,13 +1,18 @@
 @extends('admin.layouts.app')
 
+@section('title', 'listagem dos usuários')
+
+@show_source
+
 @section('content')
 
 
     <h1>Usuários </h1>
-    
 
     <a href="{{ route('users.create')}}">Adicionar Novo</a>
-
+    
+    <x-alert/>
+    
     <table>
         <thead>
             <tr>
@@ -21,7 +26,9 @@
             <tr>
                 <td>{{ $user->name}}</td>
                 <td>{{ $user->email}}</td>
-                <td>-</td>
+                <td>
+                    <a href="{{ route('users.edit', $user->id) }} ">Edit</a>
+                </td>
                
             </tr>
             @empty
